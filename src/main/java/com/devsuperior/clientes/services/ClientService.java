@@ -57,7 +57,6 @@ public class ClientService {
         if (!clientRepository.existsById(id)) {
             throw new ResourceNotFoundException("Client not found!");
         }
-
         try {
             clientRepository.deleteById(id);
         } catch (DataIntegrityViolationException e) {

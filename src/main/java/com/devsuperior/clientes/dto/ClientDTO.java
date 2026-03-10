@@ -1,6 +1,8 @@
 package com.devsuperior.clientes.dto;
 
 import com.devsuperior.clientes.entities.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,9 +17,13 @@ import java.time.LocalDate;
 public class ClientDTO {
 
     private Long id;
+
+    @NotBlank(message = "Name is required.")
     private String name;
     private String cpf;
     private Double income;
+
+    @PastOrPresent(message = "Birth date must be in the past or present.")
     private LocalDate birthDate;
     private Integer children;
 
